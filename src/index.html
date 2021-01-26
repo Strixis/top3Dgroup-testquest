@@ -6,7 +6,85 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <img src=<%= require("img/logo.svg") %> alt="hello">
-  <span class="hello">Hello!</span>
+  <div class="container">
+    <header class="header">
+      <div class="top">
+        <div class="top_left">
+          <span class="top_text top_text__city top_link">Санкт-Петербург</span>
+          <a href="tel:+78126135838" class="top_text top_link">+7 (812) 613-58-38</a>
+          <span class="top_text">Пн–пт 10:00–19:00, сб-вс 10:00–17:00</span>
+        </div>
+        <div class="top_right">
+          <a href="mailto:#" class="top_text top_text__right top_link">Напишите нам</a>
+          <span class="top_text top_text__right">Свяжитесь с директором</span>
+          <div class="top_communication">
+            <a href="#" class="top_ico">
+              <img src=<%= require("img/ico-telegram.svg") %> alt="telegram">
+            </a>
+            <a href="#" class="top_ico">
+              <img src=<%= require("img/ico-skype.svg") %> alt="skype">
+            </a>
+            <a href="tel:#" class="top_ico">
+              <img src=<%= require("img/ico-phone.svg") %> alt="phone">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="control-panel">
+          <div class="logo">
+            <img src=<%= require("img/logo.png") %> alt="logo" class="logo_img">
+            <p class="logo_text">
+              Ваш эксперт на рынке <span class="logo_text__accentuated">3D</span>-техники
+            </p>
+          </div>
+          <aside class="yandex">
+            <a href="#">
+              <img src=<%= require("img/yandex.png") %> alt="yandex" class="yandex_img">
+            </a>
+          </aside>
+          <form action="#" class="search-form">
+            <label class="search-form_label">
+              <input type="text"
+                placeholder="Введите запрос, например, Formlabs Form 2"
+                class="search-form_input"
+              >
+              <input type="submit" value="Найти" class="search-form_button-search">
+            </label>
+          </form>
+          <button class="button-login">Войти</button>
+          <button class="button-cart">Корзина пуста</button>
+        </div>
+        <nav class="navigation">
+          <a href="#" class="navigation_link">Акции</a>
+          <a href="#" class="navigation_link">О нас</a>
+          <a href="#" class="navigation_link">Мероприятия</a>
+          <a href="#" class="navigation_link">Оплата и доставка</a>
+          <a href="#" class="navigation_link">Что с моим заказом?</a>
+          <a href="#" class="navigation_link">Гос. закупки</a>
+          <a href="#" class="navigation_link">Блог</a>
+          <a href="#" class="navigation_link">Мастер-классы</a>
+          <a href="#" class="navigation_link">Контакты</a>
+        </nav>
+        <ul class="services-panel">
+          <li class="services-panel_item">3D-принтеры</li>
+          <li class="services-panel_item">3D-сканеры</li>
+          <li class="services-panel_item">Станки</li>
+          <li class="services-panel_item">Роботы</li>
+          <li class="services-panel_item">Образование</li>
+          <li class="services-panel_item">Стоматологам</li>
+          <li class="services-panel_item">Гаджеты</li>
+          <li class="services-panel_item">Материалы</li>
+          <li class="services-panel_item">ПО</li>
+          <li class="services-panel_item">Решения</li>
+          <li class="services-panel_item">Учебный центр</li>
+          <li class="services-panel_item">Услуги</li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <img src=<%= require("img/photo.jpg") %> alt="photo">
+    </main>
+  </div>
 </body>
 </html>
