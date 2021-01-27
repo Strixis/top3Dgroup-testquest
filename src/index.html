@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,10 @@
         <div class="top_left">
           <span class="top_text top_text__city top_link">Санкт-Петербург</span>
           <a href="tel:+78126135838" class="top_text top_link">+7 (812) 613-58-38</a>
-          <span class="top_text">Пн–пт 10:00–19:00, сб-вс 10:00–17:00</span>
+          <span class="top_text">
+            <nobr>Пн-пт</nobr> <nobr>10:00&mdash;19:00</nobr>, 
+            <nobr>сб-вс</nobr> <nobr>10:00&mdash;17:00</nobr>
+          </span>
         </div>
         <div class="top_right">
           <a href="mailto:#" class="top_text top_text__right top_link">Напишите нам</a>
@@ -35,7 +38,7 @@
           <div class="logo">
             <img src=<%= require("img/logo.png") %> alt="logo" class="logo_img">
             <p class="logo_text">
-              Ваш эксперт на рынке <span class="logo_text__accentuated">3D</span>-техники
+              Ваш эксперт на&nbsp;рынке <span class="logo_text__accentuated">3D</span>-техники
             </p>
           </div>
           <aside class="yandex">
@@ -83,7 +86,75 @@
       </div>
     </header>
     <main class="main">
-      <img src=<%= require("img/photo.jpg") %> alt="photo">
+      <img src=<%= require("img/photo.jpg") %> alt="photo" class="photo">
+      <section class="main-content">
+        <div class="resume">
+          <p class="resume_call">
+            Твоя работа в&nbsp;крупнейшем интеграторе цифрового производства
+          </p>
+          <button class="resume_button-submit">Отправить резюме</button>
+          <p class="resume_agreement">
+            Нажимая кнопку, вы&nbsp;соглашаетесь на&nbsp;обработку персональных данных.
+          </p>
+        </div>
+        <div class="text-block">
+          <p class="text-block_text">
+            Top 3D Shop&nbsp;&mdash; лидер по&nbsp;продажам <nobr>3D-оборудования</nobr> 
+            в&nbsp;России и&nbsp;странах СНГ. В&nbsp;2018&nbsp;мы&nbsp;стали лучшим интегратором 
+            3D оборудования по&nbsp;аддитивным технологиям и&nbsp;цифровому производству 
+            по&nbsp;версии <a href="#" class="text-block_accentuated-link">3D Print Awards</a>.
+          </p>
+          <p class="text-block_text">
+            За&nbsp;6 лет работы более 10&nbsp;000 клиентов по&nbsp;всей России и&nbsp;СНГ 
+            выбрали Top 3D Shop. В&nbsp;2018 наш оборот составил 600&nbsp;млн.&nbsp;рублей, 
+            в&nbsp;компании работает более 100 сотрудников.
+          </p>
+          <p class="text-block_text">
+            Новая цель: 1&nbsp;млрд торгового оборота в&nbsp;этом году и&nbsp;выход 
+            на&nbsp;международные рынки. Если вы&nbsp;&mdash; целеустремленный специалист, 
+            готовый учиться новым навыкам и&nbsp;учить других, мыслите не&nbsp;просто как 
+            исполнитель, а&nbsp;как владелец своего направления, то&nbsp;нам по&nbsp;пути!
+          </p>
+        </div>
+      </section>
+      <section class="onesee">
+        <div class="onesee_heading">
+          <span class="onesee_heading-text">Лучше один раз увидеть:</span>
+          <div class="line"></div>
+        </div>
+        <div class="onesee_links">
+          <a href="#" class="onesee_link">
+            Как устроена наша компания изнутри 
+          </a>
+          <a href="#" class="onesee_link">
+            Как создавалась компания&nbsp;&mdash; необычная история
+          </a>
+          <a href="#" class="onesee_link">
+            Читай о&nbsp;нас на&nbsp;3D Today
+          </a>
+        </div>
+      </section>
+      <section class="video-about">
+        <span class="video-about_heading">Видео о нас</span>
+        <div class="video-about_control-panel">
+          <button class="video-about_control-panel__left-control"></button>
+          <button class="video-about_control-panel__right-control"></button>
+        </div>
+        <div class="video-row">
+          <video class="video-row_video"
+            controls
+            poster=<%= require("img/poster-video-1.jpg") %>
+          >
+            <source src="#">
+          </video>
+          <video class="video-row_video"
+            controls
+            poster=<%= require("img/poster-video-2.jpg") %>
+          >
+            <source src="#">
+          </video>
+        </div>
+      </section>
     </main>
   </div>
 </body>
