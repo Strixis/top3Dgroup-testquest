@@ -2,18 +2,21 @@
 @use './m-fonts' as *
   
 .main
-  padding: 0 106px
   margin: 0 0 100px 0
 
 .photo
   display: block
-  width: 1288px
+  width: 1228px
   height: 430px
+  padding: 0 106px
+  box-sizing: border-box
   margin: 0 0 50px 0
 
 .main-content
   display: flex
   justify-content: space-between
+  padding: 0 106px
+  box-sizing: border-box
   margin: 0 0 70px 0
 
 .resume
@@ -70,6 +73,8 @@
       opacity: 0.5
 
 .onesee
+  padding: 0 106px
+  box-sizing: border-box
   &_heading
     display: flex
     align-items: center
@@ -115,7 +120,6 @@
   padding: 70px 137px 60px
   background: $color-background-video
   box-sizing: border-box
-  margin: 0 -106px
   &_heading
     @extend %font-sub
     display: block
