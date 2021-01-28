@@ -46,7 +46,7 @@
               <img src=<%= require("img/yandex.png") %> alt="yandex" class="yandex_img">
             </a>
           </aside>
-          <form action="#" class="search-form">
+          <form action="#" class="search-form desktop">
             <label class="search-form_label">
               <input type="text"
                 placeholder="Введите запрос, например, Formlabs Form 2"
@@ -58,7 +58,16 @@
           <button class="button-login">Войти</button>
           <button class="button-cart">Корзина пуста</button>
         </div>
-        <nav class="navigation">
+        <form action="#" class="search-form notdesktop">
+          <label class="search-form_label">
+            <input type="text"
+              placeholder="Введите запрос, например, Formlabs Form 2"
+              class="search-form_input"
+            >
+            <input type="submit" value="Найти" class="search-form_button-search">
+          </label>
+        </form>
+        <nav class="navigation desktop">
           <a href="#" class="navigation_link">Акции</a>
           <a href="#" class="navigation_link">О нас</a>
           <a href="#" class="navigation_link">Мероприятия</a>
@@ -69,7 +78,7 @@
           <a href="#" class="navigation_link">Мастер-классы</a>
           <a href="#" class="navigation_link">Контакты</a>
         </nav>
-        <ul class="services-panel">
+        <ul class="services-panel desktop">
           <li class="services-panel_item">3D-принтеры</li>
           <li class="services-panel_item">3D-сканеры</li>
           <li class="services-panel_item">Станки</li>
@@ -83,6 +92,42 @@
           <li class="services-panel_item">Учебный центр</li>
           <li class="services-panel_item">Услуги</li>
         </ul>
+        <div class="mobile-control-panel notdesktop">
+          <nav class="navigation-mobile">
+            <label for="checkbox-for-navigation-mobile_button" class="navigation-mobile_button">
+              Меню
+            </label>
+            <input type="checkbox"
+              class="hidden-checkbox"
+              id="checkbox-for-navigation-mobile_button"
+            >
+            <div class="navigation-mobile_panel">
+              <a href="#" class="navigation_link">Акции</a>
+              <a href="#" class="navigation_link">О нас</a>
+              <a href="#" class="navigation_link">Мероприятия</a>
+              <a href="#" class="navigation_link">Оплата и доставка</a>
+              <a href="#" class="navigation_link">Что с моим заказом?</a>
+              <a href="#" class="navigation_link">Гос. закупки</a>
+              <a href="#" class="navigation_link">Блог</a>
+              <a href="#" class="navigation_link">Мастер-классы</a>
+              <a href="#" class="navigation_link">Контакты</a>
+              <ul class="services-panel">
+                <li class="services-panel_item">3D-принтеры</li>
+                <li class="services-panel_item">3D-сканеры</li>
+                <li class="services-panel_item">Станки</li>
+                <li class="services-panel_item">Роботы</li>
+                <li class="services-panel_item">Образование</li>
+                <li class="services-panel_item">Стоматологам</li>
+                <li class="services-panel_item">Гаджеты</li>
+                <li class="services-panel_item">Материалы</li>
+                <li class="services-panel_item">ПО</li>
+                <li class="services-panel_item">Решения</li>
+                <li class="services-panel_item">Учебный центр</li>
+                <li class="services-panel_item">Услуги</li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
     <main class="main">
@@ -147,7 +192,7 @@
           >
             <source src="#">
           </video>
-          <video class="video-row_video"
+          <video class="video-row_video desktop"
             controls
             poster=<%= require("img/poster-video-2.jpg") %>
           >
