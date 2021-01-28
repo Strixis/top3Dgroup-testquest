@@ -21,9 +21,11 @@
       margin: 0 36px 0 0
   &_left
     display: flex
-    margin: 0 258px 0 0
-    width: 100%
     justify-content: space-between
+  &_left > &_link
+    margin: 0 20px 0 0
+    &:last-child
+      margin: 0
   &_right
     display: flex
     flex-shrink: 0
@@ -86,7 +88,7 @@
     margin: 0 16px 0 0
   &_text
     @extend %font-logo
-    min-width: 133px
+    width: 133px
     &__accentuated
       color: $font-color-accentuate
 
@@ -155,6 +157,8 @@
   @extend %font-button-header
   display: flex
   align-items: center
+  flex-shrink: 0
+  height: 36px
   border-radius: 4px
   background: $color-background-button
   padding: 9px 16px
