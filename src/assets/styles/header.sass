@@ -14,9 +14,13 @@
   &_text
     @extend %font-header-top
     text-decoration: none
-    &__city::after
-      content: url("~img/ico-arrow-top.svg")
-      margin: 0 0 0 5px
+    &__city
+      appearance: none
+      border: none
+      outline: none
+      padding: 0 11px 0 0
+      box-sizing: border-box
+      background: url(~img/ico-arrow-top.svg) no-repeat right
     &__right
       margin: 0 36px 0 0
   &_left
