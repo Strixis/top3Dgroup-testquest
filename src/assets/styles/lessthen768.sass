@@ -1,97 +1,54 @@
-@use './m-colors' as *
-@use './m-fonts' as *
-
-.navigation-mobile
-  padding: 21px 20px
-  &_button
-    display: none
-    justify-content: center
-    align-items: center
-    width: 100px
-    height: 32px
-    border: 2px solid $font-color-link-hover
-    box-sizing: border-box
-    border-radius: 4px
-    @extend %font-header-bottom
-    color: $font-color-link-hover
-    &:hover
-      cursor: pointer
-      opacity: 0.8
-    &:active
-      opacity: 0.5
-
-@media screen and ( max-width: 1023px )
-  .container
-    max-width: 768px !important
-
-  .desktop
-    display: none !important
-  .notdesktop
-    display: block !important
-
-  .header
-    margin: 12px 0 32px 0
-
+@media screen and ( max-width: 767px )
   .top
     flex-wrap: wrap
-    &_left
-      margin: 0 0 7px 0
+    &_left,
+    &_right
+      flex-direction: column
 
-  .yandex,
-  .button-login
-    margin: 0
-
-  .search-form
-    margin: 17px 20px 0 20px
-    &_button-search
+  .logo
+    width: 100%
+    &_img
+      height: 48px
+    &_text
       font-size: 11px
 
-  .photo
-    margin: 0 auto 0
+  .button-login
+    &::after
+      content: ""
+      margin: 0 7px 0 0
 
-  .main-content
-    flex-direction: column
-    margin: 0
+  .button-cart
+    &::before
+      margin: 0
+    &::after
+      content: ""
 
   .resume
-    order: 2
-    margin: 21px
+    &_call
+      font-size: 21px
+    &_button-submit
+      min-width: auto
+      margin: 11px 0
 
   .onesee
-    &_links
-      flex-direction: column
-      align-items: flex-start
-      margin: 21px
-    &_link
-      margin: 7px 0
-
-  .video-about
-    padding: 32px 20px 32px
     &_heading
-      margin: 0 0 24px 0
-
-  .navigation-mobile
-    &_panel
-      display: none
       flex-direction: column
-    .hidden-checkbox:checked ~ &_panel
-      display: flex
-    &_button
-      display: flex
-
-  .navigation
+    &_heading-text
+      margin: 0 0 7px 0
+    &_links
+      margin: 0
     &_link
-      margin: 7px 0 0 0
-      font-size: 11px
+      width: 100%
+  
+  .video-about
+    &_heading
+      align-items: baseline
+      font-size: 27px
 
-  .services-panel
-    flex-direction: column
-    align-items: flex-start
-    padding: 0
-    border: 0
-    &_item
-      margin: 7px 0 0 0
+  .video-row
+    &_video
+      width: 100%
+      margin: 0
 
-  .hidden-checkbox
-    opacity: 0
-    position: absolute
+  .yandex
+    display: none
