@@ -10,7 +10,6 @@
     <header class="header">
       <div class="top">
         <div class="top_left">
-          <!-- <span class="top_text top_text__city top_link">Санкт-Петербург</span> -->
           <select class="top_text top_text__city top_link">
             <option disabled>Выберите город</option>
             <option value="Peterburg" selected>Санкт-Петербург</option>
@@ -341,7 +340,13 @@
       </div>
     </header>
     <main class="main">
-      <img src=<%= require("img/photo.jpg") %> alt="photo" class="photo">
+      <div class="photo">
+        <div class="photo_row">
+          <img src=<%= require("img/photo.jpg") %> alt="photo" class="photo_content">
+          <img src=<%= require("img/photo-2.jpg") %> alt="photo" class="photo_content">
+          <img src=<%= require("img/photo-3.jpg") %> alt="photo" class="photo_content">
+        </div>
+      </div>
       <section class="main-content">
         <div class="resume">
           <p class="resume_call">

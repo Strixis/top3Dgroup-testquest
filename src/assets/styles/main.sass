@@ -1,14 +1,21 @@
 @use './m-colors' as *
 @use './m-fonts' as *
+@use './animations' as *
   
 .main
   margin: 0 0 100px 0
 
 .photo
-  display: block
   width: 1228px
   height: 430px
   margin: 0 auto 50px
+  overflow: hidden
+  &_content
+    width: 100%
+    height: 100%
+  &_row
+    display: flex
+    animation: slidephoto 20s ease infinite
 
 .main-content
   display: flex
