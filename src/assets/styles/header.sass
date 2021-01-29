@@ -12,6 +12,7 @@
   box-sizing: border-box
   background: $color-background-top
   &_text
+    width: max-content
     @extend %font-header-top
     text-decoration: none
     &__city
@@ -74,6 +75,9 @@
   &_link
     @extend %font-header-main
     text-decoration: none
+    white-space: nowrap
+    overflow: hidden
+    max-width: 140px
     &:hover
       color: $font-color-link-hover
     &:active
@@ -184,13 +188,18 @@
 .services-panel
   display: flex
   justify-content: space-between
-  align-items: center
+  align-items: baseline
   padding: 21px 120px
   border-top: 1px solid rgba(189, 189, 189, 0.35)
   box-sizing: border-box
   list-style-type: none
   margin: 0
+  position: relative
   &_item
+    white-space: nowrap
+    overflow: hidden
+    max-width: 120px
+  &_item-text
     @extend %font-header-bottom
     &::after
       content: url("~img/ico-arrow-top.svg")
@@ -200,4 +209,22 @@
       cursor: pointer
     &:active
       opacity: 0.5
-
+  &_list
+    display: none
+    flex-direction: column
+    width: 100%
+    padding: 11px
+    border-radius: 4px
+    box-sizing: border-box
+    background: white
+    position: absolute
+    left: 0
+    overflow: hidden
+  &_link
+    @extend %font-header-main
+    text-decoration: none
+    margin: 7px 0 0 0
+    &:hover
+      color: $font-color-link-hover
+  &_item:hover > &_list
+    display: flex

@@ -24,6 +24,7 @@ module.exports = (_, { mode }) => ({
       styles: path.resolve(__dirname, 'src', 'assets', 'styles'),
       fonts: path.resolve(__dirname, 'src', 'assets', 'fonts'),
       img: path.resolve(__dirname, 'src', 'assets', 'img'),
+      scripts: path.resolve(__dirname, 'src', 'assets', 'scripts'),
     },
   },
   module: {

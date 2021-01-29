@@ -88,6 +88,7 @@
     display: flex
     justify-content: space-between
     align-items: center
+    flex-wrap: wrap
     margin: 50px 0 70px 0
   &_link
     @extend %font-sub
@@ -95,6 +96,10 @@
     line-height: 19px
     text-align: center
     color: $font-color-link
+    white-space: nowrap
+    overflow: hidden
+    max-width: 100%
+    margin: 11px 0 0 0
     &::after
       content: url("~img/ico-arrow-right.svg")
       margin: 15px
