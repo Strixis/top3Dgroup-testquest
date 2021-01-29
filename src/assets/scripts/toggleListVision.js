@@ -1,18 +1,20 @@
 "use strict";
 
-const buttonClass = 'services-panel_item-text';
-const wrapperSelector = '.mobile-control-panel';
-const visionClass = '__hide'
+const settings = {
+  buttonClass: 'services-panel_item-text',
+  wrapperSelector: '.mobile-control-panel',
+  visionClass: '__hide',
+};
 
-function toggleListVision(wrapperSelector, buttonClass, visionClass) {
-  const wrapperElement = document.querySelector(wrapperSelector);
+function toggleListVision(settings) {
+  const wrapperElement = document.querySelector(settings.wrapperSelector);
 
   wrapperElement.addEventListener('click', (event) => {
     console.log('click')
-    if (event.target.classList.contains(buttonClass)) {
-      event.target.nextElementSibling.classList.toggle(visionClass)
+    if (event.target.classList.contains(settings.buttonClass)) {
+      event.target.nextElementSibling.classList.toggle(settings.visionClass)
     };
   });
 };
 
-toggleListVision(wrapperSelector, buttonClass, visionClass);
+toggleListVision(settings);
