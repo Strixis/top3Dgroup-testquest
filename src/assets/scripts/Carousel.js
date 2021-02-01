@@ -8,6 +8,7 @@ class Carousel {
     this.invisibleClass = settings.invisibleClass;
     this.controlPrevClass = settings.controlPrevClass;
     this.controlNextClass = settings.controlNextClass;
+    this.visibleVideo = settings.visibleVideo;
 
     this.controlWrapperElem = null;
     this.videoWrapperElem = null;
@@ -32,7 +33,7 @@ class Carousel {
 
     this.videoElemList = this.videoWrapperElem.querySelectorAll(`.${this.videoClass}`);
 
-    this.nextVideoIndex = 1;
+    this.nextVideoIndex = this.visibleVideo - 1;
     this.prevVideoIndex = this.videoElemList.length - 1;
 
     this.currentVideo = this.videoElemList[this.currentVideoIndex];
@@ -56,40 +57,45 @@ class Carousel {
     if (!this.nextVideo.classList.contains(this.invisibleClass)) {
       this.nextVideo.classList.toggle(this.invisibleClass);
       this._changeCurrentVideoToPrev();
-      this._changeNextVideo();
-      this._changePrevVideo();
+      this._changeNextVideoToPrev();
+      this._changePrevVideoToPrev();
       this.currentVideo.classList.toggle(this.invisibleClass);
     } else {
       this.currentVideo.classList.toggle(this.invisibleClass);
       this._changeCurrentVideoToPrev();
-      this._changeNextVideo();
-      this._changePrevVideo();
+      this._changeNextVideoToPrev();
+      this._changePrevVideoToPrev();
       this.prevVideo.classList.toggle(this.invisibleClass);
     };
   }
 
   _changeCurrentVideoToPrev() {
-    this.currentVideoIndex = this.prevVideoIndex;
-    this.currentVideo = this.prevVideo;
+    this._changeCurrentVideoIndexToPrev();
+    this.currentVideo = this.videoElemList[this.currentVideoIndex];
+  }
+  _changeCurrentVideoIndexToPrev() {
+    this.currentVideoIndex = this.currentVideoIndex - 1 > -1 ?
+      this.currentVideoIndex - 1 :
+      this.videoElemList.length - 1;
   }
   
-  _changeNextVideo() {
-    this._changeNextVideoIndex();
+  _changeNextVideoToPrev() {
+    this._changeNextVideoIndexToPrev();
     this.nextVideo = this.videoElemList[this.nextVideoIndex];
   }
-  _changeNextVideoIndex() {
-    this.nextVideoIndex = this.currentVideoIndex + 1 < this.videoElemList.length ?
-      this.currentVideoIndex + 1 :
-      0;
+  _changeNextVideoIndexToPrev() {
+    this.nextVideoIndex = this.nextVideoIndex - 1 > -1 ?
+      this.nextVideoIndex - 1 :
+      this.videoElemList.length - 1;
   }
 
-  _changePrevVideo() {
-    this._changePrevVideoIndex();
+  _changePrevVideoToPrev() {
+    this._changePrevVideoIndexToPrev();
     this.prevVideo = this.videoElemList[this.prevVideoIndex];
   }
-  _changePrevVideoIndex() {
-    this.prevVideoIndex = this.currentVideoIndex - 1 > -1 ?
-      this.currentVideoIndex - 1 :
+  _changePrevVideoIndexToPrev() {
+    this.prevVideoIndex = this.prevVideoIndex - 1 > -1 ?
+      this.prevVideoIndex - 1 :
       this.videoElemList.length - 1;
   }
 
@@ -97,21 +103,46 @@ class Carousel {
     if (!this.nextVideo.classList.contains(this.invisibleClass)) {
       this.currentVideo.classList.toggle(this.invisibleClass);
       this._changeCurrentVideoToNext();
-      this._changeNextVideo();
-      this._changePrevVideo();
+      this._changeNextVideoToNext();
+      this._changePrevVideoToNext();
       this.nextVideo.classList.toggle(this.invisibleClass);
     } else {
       this.prevVideo.classList.toggle(this.invisibleClass);
       this._changeCurrentVideoToNext();
-      this._changeNextVideo();
-      this._changePrevVideo();
+      this._changeNextVideoToNext();
+      this._changePrevVideoToNext();
       this.currentVideo.classList.toggle(this.invisibleClass);
     };
   }
 
   _changeCurrentVideoToNext() {
-    this.currentVideoIndex = this.nextVideoIndex;
-    this.currentVideo = this.nextVideo;
+    this._changeCurrentVideoIndexToNext();
+    this.currentVideo = this.videoElemList[this.currentVideoIndex];
+  }
+  _changeCurrentVideoIndexToNext() {
+    this.currentVideoIndex = this.currentVideoIndex + 1 < this.videoElemList.length ?
+      this.currentVideoIndex + 1 :
+      0;
+  }
+
+  _changeNextVideoToNext() {
+    this._changeNextVideoIndexToNext();
+    this.nextVideo = this.videoElemList[this.nextVideoIndex];
+  }
+  _changeNextVideoIndexToNext() {
+    this.nextVideoIndex = this.nextVideoIndex + 1 < this.videoElemList.length ?
+      this.nextVideoIndex + 1 :
+      0;
+  }
+
+  _changePrevVideoToNext() {
+    this._changePrevVideoIndexToNext();
+    this.prevVideo = this.videoElemList[this.prevVideoIndex];
+  }
+  _changePrevVideoIndexToNext() {
+    this.prevVideoIndex = this.prevVideoIndex + 1 < this.videoElemList.length ?
+      this.prevVideoIndex + 1 :
+      0;
   }
 }
 
