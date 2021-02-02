@@ -41,9 +41,7 @@ class Carousel {
     this.prevSlide = this.slideElemList[this.prevSlideIndex];
 
     this._toggleSlide = this._toggleSlide.bind(this);
-    this.controlWrapperElem.addEventListener('click',
-      this._toggleSlide
-    );
+    this.controlWrapperElem.addEventListener('click', this._toggleSlide);
   }
 
   _toggleSlide(event) {
@@ -147,10 +145,6 @@ class Carousel {
   }
 
   rerun(visibleSlides) {
-    this.controlWrapperElem.removeEventListener('click',
-      this._toggleSlide
-    );
-
     this.currentSlideIndex = 0;
     this.nextSlideIndex = 0;
     this.prevSlideIndex = 0;
@@ -162,10 +156,6 @@ class Carousel {
     this.currentSlide = this.slideElemList[this.currentSlideIndex];
     this.nextSlide = this.slideElemList[this.nextSlideIndex];
     this.prevSlide = this.slideElemList[this.prevSlideIndex];
-
-    this.controlWrapperElem.addEventListener('click',
-      this._toggleSlide
-    );
   }
 }
 
