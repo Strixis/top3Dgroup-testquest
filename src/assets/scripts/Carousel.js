@@ -145,10 +145,11 @@ class Carousel {
   }
 
   rerun(visibleSlides) {
+    this.visibleSlides = visibleSlides;
+
     this.currentSlideIndex = 0;
     this.nextSlideIndex = 0;
     this.prevSlideIndex = 0;
-    this.visibleSlides = visibleSlides;
 
     this.nextSlideIndex = this.visibleSlides - 1;
     this.prevSlideIndex = this.slideElemList.length - 1;
@@ -157,6 +158,6 @@ class Carousel {
     this.nextSlide = this.slideElemList[this.nextSlideIndex];
     this.prevSlide = this.slideElemList[this.prevSlideIndex];
   }
-}
+};
 
 export { Carousel };
