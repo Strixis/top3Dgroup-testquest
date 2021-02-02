@@ -3,24 +3,24 @@
 class Carousel {
   constructor(settings) {
     this.controlWrapperClass = settings.controlWrapper;
-    this.videoWrapperClass = settings.videoWrapperClass;
-    this.videoClass = settings.videoClass;
+    this.sliderWrapperClass = settings.sliderWrapperClass;
+    this.slideClass = settings.slideClass;
     this.invisibleClass = settings.invisibleClass;
     this.controlPrevClass = settings.controlPrevClass;
     this.controlNextClass = settings.controlNextClass;
-    this.visibleVideo = settings.visibleVideo;
+    this.visibleSlides = settings.visibleSlides;
 
     this.controlWrapperElem = null;
-    this.videoWrapperElem = null;
-    this.videoElemList = null;
+    this.slideWrapperElem = null;
+    this.slideElemList = null;
 
-    this.currentVideoIndex = 0;
-    this.nextVideoIndex = 0;
-    this.prevVideoIndex = 0;
+    this.currentSlideIndex = 0;
+    this.nextSlideIndex = 0;
+    this.prevSlideIndex = 0;
 
-    this.currentVideo = null;
-    this.nextVideo = null;
-    this.prevVideo = null;
+    this.currentSlide = null;
+    this.nextSlide = null;
+    this.prevSlide = null;
   }
 
   run() {
@@ -29,120 +29,143 @@ class Carousel {
 
   _init() {
     this.controlWrapperElem = document.querySelector(`.${this.controlWrapperClass}`);
-    this.videoWrapperElem = document.querySelector(`.${this.videoWrapperClass}`);
+    this.slideWrapperElem = document.querySelector(`.${this.sliderWrapperClass}`);
 
-    this.videoElemList = this.videoWrapperElem.querySelectorAll(`.${this.videoClass}`);
+    this.slideElemList = this.slideWrapperElem.querySelectorAll(`.${this.slideClass}`);
 
-    this.nextVideoIndex = this.visibleVideo - 1;
-    this.prevVideoIndex = this.videoElemList.length - 1;
+    this.nextSlideIndex = this.visibleSlides - 1;
+    this.prevSlideIndex = this.slideElemList.length - 1;
 
-    this.currentVideo = this.videoElemList[this.currentVideoIndex];
-    this.nextVideo = this.videoElemList[this.nextVideoIndex];
-    this.prevVideo = this.videoElemList[this.prevVideoIndex];
+    this.currentSlide = this.slideElemList[this.currentSlideIndex];
+    this.nextSlide = this.slideElemList[this.nextSlideIndex];
+    this.prevSlide = this.slideElemList[this.prevSlideIndex];
 
+    this._toggleSlide = this._toggleSlide.bind(this);
     this.controlWrapperElem.addEventListener('click',
-      (event) => this._toggleSlide(event.target.classList)
+      this._toggleSlide
     );
   }
 
-  _toggleSlide(classList) {
-    if (classList.contains(this.controlPrevClass)) {
+  _toggleSlide(event) {
+    if (event.target.classList.contains(this.controlPrevClass)) {
       this._toggleToPrev();
-    } else if (classList.contains(this.controlNextClass)) {
+    } else if (event.target.classList.contains(this.controlNextClass)) {
       this._toggleToNext();
     };
   }
 
   _toggleToPrev() {
-    if (!this.nextVideo.classList.contains(this.invisibleClass)) {
-      this.nextVideo.classList.toggle(this.invisibleClass);
-      this._changeCurrentVideoToPrev();
-      this._changeNextVideoToPrev();
-      this._changePrevVideoToPrev();
-      this.currentVideo.classList.toggle(this.invisibleClass);
+    if (!this.nextSlide.classList.contains(this.invisibleClass)) {
+      this.nextSlide.classList.toggle(this.invisibleClass);
+      this._changeCurrentSlideToPrev();
+      this._changeNextSlideToPrev();
+      this._changePrevSlideToPrev();
+      this.currentSlide.classList.toggle(this.invisibleClass);
     } else {
-      this.currentVideo.classList.toggle(this.invisibleClass);
-      this._changeCurrentVideoToPrev();
-      this._changeNextVideoToPrev();
-      this._changePrevVideoToPrev();
-      this.prevVideo.classList.toggle(this.invisibleClass);
+      this.currentSlide.classList.toggle(this.invisibleClass);
+      this._changeCurrentSlideToPrev();
+      this._changeNextSlideToPrev();
+      this._changePrevSlideToPrev();
+      this.prevSlide.classList.toggle(this.invisibleClass);
     };
   }
 
-  _changeCurrentVideoToPrev() {
-    this._changeCurrentVideoIndexToPrev();
-    this.currentVideo = this.videoElemList[this.currentVideoIndex];
+  _changeCurrentSlideToPrev() {
+    this._changeCurrentSlideIndexToPrev();
+    this.currentSlide = this.slideElemList[this.currentSlideIndex];
   }
-  _changeCurrentVideoIndexToPrev() {
-    this.currentVideoIndex = this.currentVideoIndex - 1 > -1 ?
-      this.currentVideoIndex - 1 :
-      this.videoElemList.length - 1;
+  _changeCurrentSlideIndexToPrev() {
+    this.currentSlideIndex = this.currentSlideIndex - 1 > -1 ?
+      this.currentSlideIndex - 1 :
+      this.slideElemList.length - 1;
   }
   
-  _changeNextVideoToPrev() {
-    this._changeNextVideoIndexToPrev();
-    this.nextVideo = this.videoElemList[this.nextVideoIndex];
+  _changeNextSlideToPrev() {
+    this._changeNextSlideIndexToPrev();
+    this.nextSlide = this.slideElemList[this.nextSlideIndex];
   }
-  _changeNextVideoIndexToPrev() {
-    this.nextVideoIndex = this.nextVideoIndex - 1 > -1 ?
-      this.nextVideoIndex - 1 :
-      this.videoElemList.length - 1;
+  _changeNextSlideIndexToPrev() {
+    this.nextSlideIndex = this.nextSlideIndex - 1 > -1 ?
+      this.nextSlideIndex - 1 :
+      this.slideElemList.length - 1;
   }
 
-  _changePrevVideoToPrev() {
-    this._changePrevVideoIndexToPrev();
-    this.prevVideo = this.videoElemList[this.prevVideoIndex];
+  _changePrevSlideToPrev() {
+    this._changePrevSlideIndexToPrev();
+    this.prevSlide = this.slideElemList[this.prevSlideIndex];
   }
-  _changePrevVideoIndexToPrev() {
-    this.prevVideoIndex = this.prevVideoIndex - 1 > -1 ?
-      this.prevVideoIndex - 1 :
-      this.videoElemList.length - 1;
+  _changePrevSlideIndexToPrev() {
+    this.prevSlideIndex = this.prevSlideIndex - 1 > -1 ?
+      this.prevSlideIndex - 1 :
+      this.slideElemList.length - 1;
   }
 
   _toggleToNext() {
-    if (!this.nextVideo.classList.contains(this.invisibleClass)) {
-      this.currentVideo.classList.toggle(this.invisibleClass);
-      this._changeCurrentVideoToNext();
-      this._changeNextVideoToNext();
-      this._changePrevVideoToNext();
-      this.nextVideo.classList.toggle(this.invisibleClass);
+    if (!this.nextSlide.classList.contains(this.invisibleClass)) {
+      this.currentSlide.classList.toggle(this.invisibleClass);
+      this._changeCurrentSlideToNext();
+      this._changeNextSlideToNext();
+      this._changePrevSlideToNext();
+      this.nextSlide.classList.toggle(this.invisibleClass);
     } else {
-      this.prevVideo.classList.toggle(this.invisibleClass);
-      this._changeCurrentVideoToNext();
-      this._changeNextVideoToNext();
-      this._changePrevVideoToNext();
-      this.currentVideo.classList.toggle(this.invisibleClass);
+      this.prevSlide.classList.toggle(this.invisibleClass);
+      this._changeCurrentSlideToNext();
+      this._changeNextSlideToNext();
+      this._changePrevSlideToNext();
+      this.currentSlide.classList.toggle(this.invisibleClass);
     };
   }
 
-  _changeCurrentVideoToNext() {
-    this._changeCurrentVideoIndexToNext();
-    this.currentVideo = this.videoElemList[this.currentVideoIndex];
+  _changeCurrentSlideToNext() {
+    this._changeCurrentSlideIndexToNext();
+    this.currentSlide = this.slideElemList[this.currentSlideIndex];
   }
-  _changeCurrentVideoIndexToNext() {
-    this.currentVideoIndex = this.currentVideoIndex + 1 < this.videoElemList.length ?
-      this.currentVideoIndex + 1 :
+  _changeCurrentSlideIndexToNext() {
+    this.currentSlideIndex = this.currentSlideIndex + 1 < this.slideElemList.length ?
+      this.currentSlideIndex + 1 :
       0;
   }
 
-  _changeNextVideoToNext() {
-    this._changeNextVideoIndexToNext();
-    this.nextVideo = this.videoElemList[this.nextVideoIndex];
+  _changeNextSlideToNext() {
+    this._changeNextSlideIndexToNext();
+    this.nextSlide = this.slideElemList[this.nextSlideIndex];
   }
-  _changeNextVideoIndexToNext() {
-    this.nextVideoIndex = this.nextVideoIndex + 1 < this.videoElemList.length ?
-      this.nextVideoIndex + 1 :
+  _changeNextSlideIndexToNext() {
+    this.nextSlideIndex = this.nextSlideIndex + 1 < this.slideElemList.length ?
+      this.nextSlideIndex + 1 :
       0;
   }
 
-  _changePrevVideoToNext() {
-    this._changePrevVideoIndexToNext();
-    this.prevVideo = this.videoElemList[this.prevVideoIndex];
+  _changePrevSlideToNext() {
+    this._changePrevSlideIndexToNext();
+    this.prevSlide = this.slideElemList[this.prevSlideIndex];
   }
-  _changePrevVideoIndexToNext() {
-    this.prevVideoIndex = this.prevVideoIndex + 1 < this.videoElemList.length ?
-      this.prevVideoIndex + 1 :
+  _changePrevSlideIndexToNext() {
+    this.prevSlideIndex = this.prevSlideIndex + 1 < this.slideElemList.length ?
+      this.prevSlideIndex + 1 :
       0;
+  }
+
+  rerun(visibleSlides) {
+    this.controlWrapperElem.removeEventListener('click',
+      this._toggleSlide
+    );
+
+    this.currentSlideIndex = 0;
+    this.nextSlideIndex = 0;
+    this.prevSlideIndex = 0;
+    this.visibleSlides = visibleSlides;
+
+    this.nextSlideIndex = this.visibleSlides - 1;
+    this.prevSlideIndex = this.slideElemList.length - 1;
+
+    this.currentSlide = this.slideElemList[this.currentSlideIndex];
+    this.nextSlide = this.slideElemList[this.nextSlideIndex];
+    this.prevSlide = this.slideElemList[this.prevSlideIndex];
+
+    this.controlWrapperElem.addEventListener('click',
+      this._toggleSlide
+    );
   }
 }
 
