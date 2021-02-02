@@ -107,7 +107,7 @@ module.exports = (_, { mode }) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Strixis Landing',
+      title: 'Top3D',
       favicon: path.resolve(__dirname, 'src', 'favicon.png'),
       template: path.resolve(__dirname, 'src', 'index.html'),
       filename: 'index.html',
