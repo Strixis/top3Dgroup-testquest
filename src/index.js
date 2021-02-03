@@ -14,6 +14,8 @@ const videoList = videoWrapperElem.querySelectorAll(`.${videoClass}`);
 
 let mobile = false;
 
+document.querySelector('.services-panel').addEventListener('touchstart', () => {});
+
 if (window.innerWidth < 1239) {
   mobile = true;
   visibleSlides = 1;
