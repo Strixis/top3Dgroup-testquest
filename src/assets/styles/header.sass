@@ -1,0 +1,231 @@
+@use './m-colors' as *
+@use './m-fonts' as *
+
+.header
+  margin: 12px 0 70px 0
+
+.top
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 7px 120px
+  box-sizing: border-box
+  background: $color-background-top
+  &_text
+    width: max-content
+    @extend %font-header-top
+    text-decoration: none
+    &__city
+      appearance: none
+      border: none
+      outline: none
+      padding: 0 11px 0 0
+      box-sizing: border-box
+      background: url(~img/ico-arrow-top.svg) no-repeat right
+    &__right
+      margin: 0 36px 0 0
+  &_left
+    display: flex
+    justify-content: space-between
+  &_left > &_link
+    margin: 0 20px 0 0
+    &:last-child
+      margin: 0
+  &_right
+    display: flex
+    flex-shrink: 0
+  &_communication
+    display: flex
+  &_ico
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 18px
+    height: 18px
+    text-decoration: none
+    border: 1px solid transparent
+    border-radius: 4px
+    box-sizing: border-box
+    margin: 0 19px 0 0
+    &:last-child
+      margin: 0
+    &:hover
+      border-color: $font-color-link-hover
+      opacity: 0.8
+    &:active
+      opacity: 0.5
+  &_link
+    &:hover
+      cursor: pointer
+      color: $font-color-link-hover
+      opacity: 0.8
+    &:active
+      opacity: 0.5
+
+.bottom
+  box-shadow: 0px 4px 48px $color-shadow-top
+
+.navigation
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  padding: 21px 124px
+  box-sizing: border-box
+  &_link
+    @extend %font-header-main
+    text-decoration: none
+    white-space: nowrap
+    overflow: hidden
+    max-width: 140px
+    &:hover
+      color: $font-color-link-hover
+    &:active
+      opacity: 0.5
+
+.control-panel
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 16px 120px 0
+
+.logo
+  display: flex
+  align-items: center
+  &_img
+    margin: 0 16px 0 0
+  &_text
+    @extend %font-logo
+    width: 133px
+    &__accentuated
+      color: $font-color-accentuate
+
+.yandex
+  box-shadow: 0px 4px 16px $color-shadow-top
+  border-radius: 8px
+  padding: 5px 12px
+  box-sizing: border-box
+  margin: 0 32px
+  &_img
+    display: block
+    width: 80px
+    height: 50px
+
+.search-form
+  &_input
+    @extend %font-search-form
+    width: 100%
+    border: none
+    padding: 0 12px
+    box-sizing: border-box
+    &:focus
+      color: $font-color-main
+  &_label
+    display: flex
+    align-items: center
+    width: 521px
+    padding: 4px
+    border: 1px solid rgba(189, 189, 189, 1)
+    box-sizing: border-box
+    border-radius: 4px
+  &_button-search
+    @extend %font-header-main
+    padding: 9px 17px
+    border: 2px solid $color-background-button
+    box-sizing: border-box
+    border-radius: 4px
+    color: $color-background-button
+    background: none
+    &:hover
+      cursor: pointer
+      opacity: 0.8
+    &:active
+      opacity: 0.5
+
+.button-login
+  @extend %font-header-top
+  display: flex
+  align-items: center
+  border: none
+  outline: none
+  background: none
+  padding: 0
+  margin: 0 32px
+  &::before
+    content: url("~img/ico-exit.svg")
+    margin: 0 10px 0 0
+  &::after
+    content: "Войти"
+  &:hover
+    color: $font-color-link-hover
+    opacity: 0.8
+    cursor: pointer
+  &:active
+    opacity: 0.5
+
+.button-cart
+  @extend %font-button-header
+  display: flex
+  align-items: center
+  flex-shrink: 0
+  height: 36px
+  border-radius: 4px
+  background: $color-background-button
+  padding: 9px 16px
+  border: none
+  outline: none
+  box-sizing: border-box
+  &::before
+    content: url("~img/ico-cart.svg")
+    margin: 0 10px 0 0
+  &::after
+    content: "Корзина пуста"
+  &:hover
+    opacity: 0.8
+  &:active
+    opacity: 0.5
+
+.services-panel
+  display: flex
+  justify-content: space-between
+  align-items: baseline
+  padding: 21px 120px
+  border-top: 1px solid rgba(189, 189, 189, 0.35)
+  box-sizing: border-box
+  list-style-type: none
+  margin: 0
+  position: relative
+  &_item
+    white-space: nowrap
+    overflow: hidden
+    max-width: 120px
+  &_item-text
+    @extend %font-header-bottom
+    &::after
+      content: url("~img/ico-arrow-top.svg")
+      margin: 0 0 0 5px
+    &:hover
+      color: $font-color-link-hover
+      cursor: pointer
+    &:active
+      opacity: 0.5
+  &_list
+    display: none
+    flex-direction: column
+    width: 100%
+    padding: 11px
+    border-radius: 4px
+    box-sizing: border-box
+    background: white
+    position: absolute
+    left: 0
+    overflow: hidden
+    z-index: 1
+  &_link
+    @extend %font-header-main
+    text-decoration: none
+    margin: 7px 0 0 0
+    &:hover
+      color: $font-color-link-hover
+  &_item:not(.nohover):hover > &_list
+    display: flex

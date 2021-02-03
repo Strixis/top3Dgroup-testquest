@@ -1,0 +1,54 @@
+@media screen and ( max-width: 767px )
+  .top
+    flex-wrap: wrap
+    &_left,
+    &_right
+      flex-direction: column
+
+  .logo
+    width: 100%
+    &_img
+      height: 48px
+    &_text
+      font-size: 11px
+
+  .button-login
+    &::after
+      content: ""
+      margin: 0 7px 0 0
+
+  .button-cart
+    &::before
+      margin: 0
+    &::after
+      content: ""
+
+  .resume
+    &_call
+      font-size: 21px
+    &_button-submit
+      min-width: auto
+      margin: 11px 0
+
+  .onesee
+    &_heading
+      flex-direction: column
+    &_heading-text
+      margin: 0 0 7px 0
+    &_links
+      margin: 0
+    &_link
+      width: 100%
+  
+  .video-about
+    &_heading
+      align-items: baseline
+      font-size: 27px
+
+  .video-row
+    &_video
+      width: 100%
+      margin: 0
+
+  .yandex
+    display: none

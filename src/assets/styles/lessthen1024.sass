@@ -1,0 +1,104 @@
+@use './m-colors' as *
+@use './m-fonts' as *
+
+.navigation-mobile
+  padding: 21px 20px
+  &_button
+    display: none
+    justify-content: center
+    align-items: center
+    width: 100px
+    height: 32px
+    border: 2px solid $font-color-link-hover
+    box-sizing: border-box
+    border-radius: 4px
+    @extend %font-header-bottom
+    color: $font-color-link-hover
+    &:hover
+      cursor: pointer
+      opacity: 0.8
+    &:active
+      opacity: 0.5
+
+@media screen and ( max-width: 1023px )
+  .container
+    max-width: 768px !important
+
+  .desktop
+    display: none !important
+  .notdesktop
+    display: block !important
+
+  .header
+    margin: 12px 0 32px 0
+
+  .top
+    flex-wrap: wrap
+    &_left
+      margin: 0 0 7px 0
+
+  .yandex,
+  .button-login
+    margin: 0
+
+  .search-form
+    margin: 17px 20px 0 20px
+    &_button-search
+      font-size: 11px
+
+  .photo
+    margin: 0 auto 0
+
+  .main-content
+    flex-direction: column
+    margin: 0
+
+  .resume
+    order: 2
+    margin: 21px
+
+  .onesee
+    &_links
+      flex-direction: column
+      align-items: flex-start
+      margin: 21px
+    &_link
+      margin: 7px 0
+      white-space: normal
+
+  .video-about
+    padding: 32px 20px 32px
+    &_heading
+      margin: 0 0 24px 0
+
+  .navigation-mobile
+    &_panel
+      display: none
+      flex-direction: column
+    .hidden-checkbox:checked ~ &_panel
+      display: flex
+    &_button
+      display: flex
+
+  .navigation
+    &_link
+      max-width: 100%
+      margin: 7px 0 0 0
+      font-size: 11px
+
+  .services-panel
+    flex-direction: column
+    align-items: flex-start
+    padding: 0
+    border: 0
+    &_item
+      max-width: 100%
+      margin: 7px 0 0 0
+    &_list
+      display: flex
+      height: 100%
+      position: static
+
+  .hidden-checkbox
+    opacity: 0
+    position: absolute
