@@ -1,7 +1,6 @@
 import 'styles/normalize.css';
 import 'fonts';
 import 'styles';
-import { ToggleVisibility } from 'scripts/ToggleVisibility';
 import { Carousel } from 'scripts/Carousel';
 
 const videoWrapperClass = 'video-row';
@@ -30,14 +29,6 @@ const carousel = new Carousel({
   visibleSlides,
 });
 
-const toggleVisibility = new ToggleVisibility({
-  buttonClass: 'services-panel_item-text',
-  wrapperClass: 'mobile-control-panel',
-  visionClass: '__hide',
-
-});
-
-toggleVisibility.run();
 carousel.run();
 
 (function() {
