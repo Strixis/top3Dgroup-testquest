@@ -1,6 +1,7 @@
 import 'styles/normalize.css';
 import 'fonts';
 import 'styles';
+import { ToggleVisibility } from 'scripts/ToggleVisibility';
 import { Carousel } from 'scripts/Carousel';
 
 const videoWrapperClass = 'video-row';
@@ -13,13 +14,17 @@ const videoList = videoWrapperElem.querySelectorAll(`.${videoClass}`);
 
 let mobile = false;
 
-document.querySelector('.services-panel').addEventListener('touchstart', () => {});
-
 if (window.innerWidth < 1239) {
   mobile = true;
   visibleSlides = 1;
   videoList[1].classList.add(invisibleClass);
 };
+
+const toggleVisibility = new ToggleVisibility({
+  buttonClass: 'services-panel_item-text',
+  wrapperClass: 'navigation-mobile_panel',
+  visionClass: '__hide',
+})
 
 const carousel = new Carousel({
   controlWrapper: 'video-about_control-panel',
@@ -31,6 +36,7 @@ const carousel = new Carousel({
   visibleSlides,
 });
 
+toggleVisibility.run();
 carousel.run();
 
 (function() {
